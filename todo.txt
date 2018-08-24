@@ -1,0 +1,6 @@
+Read from/ write to local Json file.
+Convert Json values to objects.
+Retieve events by criteria
+Player response form
+Admin form - add events, see responses
+Archive old events and responses
