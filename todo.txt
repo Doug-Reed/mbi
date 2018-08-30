@@ -1,11 +1,13 @@
-Read from/ write to local Json file.  
-       https://www.baeldung.com/jackson-json-node-tree-model
 
+Admin:
 
-Read file
-Convert Json file to objects
-Convert objects back to Json
-Overwrite file
+Add event
+Edit event
+View responses
+
+Player:
+
+Edit responses 
 
 
 Convert Json values to objects.
