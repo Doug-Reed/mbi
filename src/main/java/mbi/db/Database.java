@@ -11,6 +11,13 @@ public class Database {
     }
     //  http://jsondb.io/
 
+    //upsert event
+    //upsert player
+    //upsert response
+
+    //fetch response by player
+    
+
     public String addEvent(Event event){
         try{
            jsonDBTemplate.insert(event);
