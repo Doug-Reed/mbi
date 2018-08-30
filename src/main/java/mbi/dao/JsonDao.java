@@ -5,6 +5,7 @@ import mbi.model.Player;
 import mbi.model.*;
 
 import mbi.dao.IMbiDao;
+import java.io.FileWriter;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -42,19 +43,41 @@ public class JsonDao implements IMbiDao {
         return null;
     }
 
+    public void writeFile (JSONObject jsonObject, String fileName) {
+        File file = null;
+        try{
+         file = new ClassPathResource(fileName + ".json").getFile();
 
+        }catch (Exception e) {
 
-    public ArrayList<Event> getAllEvents(){
-        return null;
+        }
+
+        try {
+    FileWriter f2 = new FileWriter(file, true);
+    f2.write(jsonObject.toJSONString());
+    f2.close();
+} catch (IOException e) {
+    e.printStackTrace();
+}           
     }
-    public ArrayList<Response> getAllResponses() {
-        return null;
+
+
+
+    public JSONArray getAllEvents(){
+        JSONArray events = getFileByName("events");
+        System.out.println(events);
+        return events;
+    }
+    public JSONArray getAllResponses() {
+        JSONArray responses = getFileByName("responses");
+        System.out.println(responses);
+        return responses;
     }
 
-    public ArrayList<Player> getAllPlayers() {
+    public JSONArray getAllPlayers() {
         JSONArray players = getFileByName("players");
         System.out.println(players);
-        return null;
+        return players;
     /*
 
         //JSON parser object to parse read file

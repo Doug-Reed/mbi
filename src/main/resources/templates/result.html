@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Event</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    	<h1>Result</h1>
+    <p th:text="'name: ' + ${event.eventName}" />
+    <p th:text="'date: ' + ${event.eventDateFormatted}" />
+    <a href="/event">Submit another event</a>
+</body>
+</html>

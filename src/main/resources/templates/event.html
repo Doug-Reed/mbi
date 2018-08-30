@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Enter A Date Form</h1>
+    <form action="#" th:action="@{/eventAdmin}" th:object="${event}" method="post">
+    	<p>Event Name: <input type="text" th:field="*{eventName}" /></p>
+        <p>Event Date yyyy-mm-dd HH:MM: <input type="text" th:field="*{eventDateFormatted}" /></p>    
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

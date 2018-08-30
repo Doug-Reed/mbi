@@ -1,6 +1,16 @@
-Read from/ write to local Json file.
+Read from/ write to local Json file.  
+       https://www.baeldung.com/jackson-json-node-tree-model
+
+
+Read file
+Convert Json file to objects
+Convert objects back to Json
+Overwrite file
+
+
 Convert Json values to objects.
-Retieve events by criteria
+Retrieve events by criteria
 Player response form
+
 Admin form - add events, see responses
 Archive old events and responses
