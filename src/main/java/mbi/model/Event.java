@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import io.jsondb.annotation.Document;
 import io.jsondb.annotation.Id;
-import io.jsondb.annotation.Secret;
+
 @Document(collection = "events", schemaVersion= "1.0")
 public class Event {
 

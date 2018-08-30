@@ -1,6 +1,9 @@
 package mbi.model;
-
+import io.jsondb.annotation.Document;
+import io.jsondb.annotation.Id;
+@Document(collection = "players", schemaVersion= "1.0")
 public class Player {
+    @Id
     private String playerName;
     private String playerEmail;
 
