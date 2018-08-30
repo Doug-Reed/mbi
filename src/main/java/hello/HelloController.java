@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import mbi.model.Event;
 import java.io.File;
+import java.util.List;
 import mbi.db.Database;
 import mbi.db.ObjectTypes;
 import org.springframework.core.io.ClassPathResource;
@@ -45,9 +46,21 @@ public class HelloController {
         db.makeTable();
         return "win";
     }
-
+    @RequestMapping("/allEvents")
+    public String allEvents(Model model){
+         Database db = new Database();
+        List<Event> events = db.allEvents();
+        model.addAttribute(events);
+        return "eventList";
+        
+    }
    
-
+    @RequestMapping("/dangerLink")
+    public String makeDatabase(){
+        Database db = new Database();
+        db.initializeDatabase();
+        return "dangerLink";
+    }
 
     @RequestMapping("/")
     public String index() {
