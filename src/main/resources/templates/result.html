@@ -5,8 +5,14 @@
 </head>
 <body>
     	<h1>Result</h1>
-    <p th:text="'name: ' + ${event.eventName}" />
-    <p th:text="'date: ' + ${event.eventDateFormatted}" />
-    <a href="/event">Submit another event</a>
+    <p th:text="'name: ' + ${event.eventId}" has been created. />
+    <tbody>
+        <tr th:each="event : ${events}">
+            <td><span th:text="${event.eventId}"> Event </span></td>
+        </tr>
+    </tbody>
+   
+    <a href="/eventAdmin">Submit another event</a>
 </body>
 </html>
+

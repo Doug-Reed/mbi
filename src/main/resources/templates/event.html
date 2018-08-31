@@ -8,7 +8,8 @@
 	<h1>Enter A Date Form</h1>
     <form action="#" th:action="@{/eventAdmin}" th:object="${event}" method="post">
     	<p>Event Name: <input type="text" th:field="*{eventName}" /></p>
-        <p>Event Date yyyy-mm-dd HH:MM: <input type="text" th:field="*{eventDateFormatted}" /></p>    
+        <p>Event Date: <input type="date" th:field="*{eventDate}" /></p> 
+        <p>Event Comments: <input type="text" th:field="*{eventComments}" /></p>  
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
 </body>

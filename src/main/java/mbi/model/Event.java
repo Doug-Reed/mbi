@@ -1,57 +1,55 @@
-package mbi.model;
+package mbi.model; 
 
-import java.util.Date;
-import java.util.Locale;
-import java.text.SimpleDateFormat;
-import java.text.DateFormat;
 import io.jsondb.annotation.Document;
 import io.jsondb.annotation.Id;
 
 @Document(collection = "events", schemaVersion= "1.0")
 public class Event {
 
-    
-    
-    private Date eventDate;
-    private String eventDateFormatted;
     @Id
+    private String eventId;
     private String eventName;
+    private String eventDate;
+    private String eventComments;
+    
+   public String getEventComments(){
+     return this.eventComments;
+   }
 
-    public Date getEventDate() {
+   public void setEventComments(String comments) {
+     this.eventComments = comments;
+   }
+    public String getEventDate() {
         return this.eventDate;
     }
-
-    private void parseDate(String dateString) {
-
-        DateFormat format = new SimpleDateFormat("yyyy mm dd kk:mm", Locale.ENGLISH);
-        try {
-            Date date = format.parse(dateString);
-            setEventDate(date);
-        } catch (Exception e) {
-
-        }
-        System.out.println(dateString);
+    public String getEventId() {
+        return this.eventDate + " " + this.eventName;
     }
 
-    public String getEventDateFormatted() {
-        return this.eventDateFormatted;
+    public void setEventId(String setter) {
+      eventId = this.eventDate + " " + this.eventName;
     }
-
     public String getEventName() {
         return this.eventName;
     }
 
-    public void setEventDate(Date eventDate) {
+    public void setEventDate(String eventDate) {
         this.eventDate = eventDate;
     }
 
-    public void setEventDateFormatted(String eventDateFormatted) {
-        parseDate(eventDateFormatted);
-        this.eventDateFormatted = eventDateFormatted;
-    }
+   
 
     public void setEventName(String eventName) {
         this.eventName = eventName;
     }
 
+/*
+  public static Comparator<Event> dateComparator = new Comparator<Event>() {         
+    @Override         
+    public int compare(Event jc1, Event jc2) {             
+      return (jc2.getEventDate().before(jc1.getEventDate()) ) ? -1 :                     
+              (jc2.getEventDate() == jc1.getEventDate() ? 0 : 1);           
+    }     
+  }; 
+*/
 }

@@ -28,12 +28,21 @@ public class Database {
     }
 
     public String upsertEvent(Event event) {
-        try {
-            jsonDBTemplate.upsert(event);
+        JsonDBTemplate db = getJsonDBTemplate();
+        try{
+            db.createCollection(Event.class);
         } catch (Exception e) {
+            System.out.println("Exists");
+        }
+        try {
+            
+            db.upsert(event);
+        } catch (Exception e) {
+            System.out.println("More FUBAR");
+            System.out.println(e.getMessage());
             return "FUBAR";
         }
-
+        System.out.println("winning");
         return "OK";
     }
 
