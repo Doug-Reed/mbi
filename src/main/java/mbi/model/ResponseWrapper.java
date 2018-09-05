@@ -1,6 +1,7 @@
 package mbi.model;
 
 import mbi.db.Database;
+import mbi.model.EventWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,14 +23,15 @@ public class ResponseWrapper{
         return retVal;
     }
 
-    public Response makeNewResponse(Player p, Event e) {
+    private Response makeNewResponse(Player p, Event e) {
          Database db = new Database();
          String responseID = makeID(p, e);
          Response response = new Response(responseID);
          response.setResponse("NONE");
          String result = db.insertResponse(response);
-         return response;
          System.out.println("insert " + responseID + " " + result);
+         return response;
+         
     }
 
     public Response getResponse(Player p, Event e) {
@@ -45,7 +47,7 @@ public class ResponseWrapper{
         return null;
     }
 
-    public String makeID(Player p, Event e){
+    private String makeID(Player p, Event e){
         return p.getPlayerName() + "~" + e.getEventId();
     
     }

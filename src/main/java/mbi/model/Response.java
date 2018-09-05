@@ -17,6 +17,7 @@ public class Response {
    public void setResponseID(String responseID) {
        this.responseID = responseID;
    }
+
  
   public Response(String responseID) {
       setResponseID(responseID);
@@ -48,5 +49,8 @@ public class Response {
     public void setComment(String comment) {
         this.comment = comment;
     } 
-
+    @Override
+    public String toString(){
+        return this.responseID + " " + this.response + " " + this.comment;
+    }
 }

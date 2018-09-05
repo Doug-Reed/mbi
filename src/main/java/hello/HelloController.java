@@ -4,6 +4,7 @@ package hello;
 import mbi.model.Event;
 import mbi.model.EventWrapper;
 import mbi.model.Player;
+import mbi.model.Response;
 import mbi.session.Session;
 import mbi.model.ResponseWrapper;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -25,6 +27,16 @@ public class HelloController {
 
     private Session session;
     
+@RequestMapping("myResponses/{playerName}")
+    public String myRSVPS(Model model, @PathVariable String playerName) {
+        Player p = session.getDatabase().getPlayerByName(playerName);
+        ResponseWrapper rw = new ResponseWrapper();
+        List<Response> lr =  rw.responsesByPlayer(p);
+        model.addAttribute("lr", lr);
+
+        return "rsvp";
+    }
+
     @RequestMapping("/eventList")
     public String listEvents(Model model){
         EventWrapper ew = new EventWrapper();
@@ -88,6 +100,11 @@ public class HelloController {
     public String index() {
        session = new Session(true);
        ResponseWrapper rw = new ResponseWrapper();
+       Player p = session.getDatabase().getPlayerByName("Doug");
+       List<Response> resDoug = rw.responsesByPlayer(p);
+       for(Response r: resDoug) {
+           System.out.println(r.toString());
+       }
        rw.dummy();
        return "index";
     }
