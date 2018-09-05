@@ -5,11 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Enter A Date Form</h1>
-    <form action="#" th:action="@{/eventAdmin}" th:object="${event}" method="post">
-    	<p>Event Name: <input type="text" th:field="*{eventName}" /></p>
-        <p>Event Date: <input type="date" th:field="*{eventDate}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-    </form>
+	<h1>Enter A Date List</h1>
+    These are the events:<br/>
+    <div th:each="event : ${events}"> <div th:text="${event}"> Evnt = </div></div>
 </body>
 </html>

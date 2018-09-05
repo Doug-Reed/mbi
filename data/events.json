@@ -1,3 +1,8 @@
 {"schemaVersion":"1.0"}
-{"eventDate":null,"eventDateFormatted":null,"eventName":"test event"}
-{"eventDate":null,"eventDateFormatted":null,"eventName":"test event 2"}
+{"eventId":"2018-09-14 Pow","eventName":"Pow","eventDate":"2018-09-14","eventComments":null}
+{"eventId":"2018-09-22 Two","eventName":"Two","eventDate":"2018-09-22","eventComments":null}
+{"eventId":"2018-09-29 Brad","eventName":"Brad","eventDate":"2018-09-29","eventComments":"This is a great show."}
+{"eventId":"2018-09-08 Grown Up Show","eventName":"Grown Up Show","eventDate":"2018-09-08","eventComments":"Features Full Nudity!"}
+{"eventId":"2018-09-14 Merge","eventName":"Merge","eventDate":"2018-09-14","eventComments":"Not starring Louis CK"}
+{"eventId":"2018-12-28 Cows","eventName":"Cows","eventDate":"2018-12-28","eventComments":"Cow show!"}
+{"eventId":"2018-11-22 Thanksgiving show","eventName":"Thanksgiving show","eventDate":"2018-11-22","eventComments":"Gobble"}

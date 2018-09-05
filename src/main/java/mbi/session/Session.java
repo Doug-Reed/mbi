@@ -11,6 +11,9 @@ public class Session {
     } 
 
     public Database getDatabase(){
+        if(database ==null){
+            database = new Database();
+        }
         System.out.println("getDatabase");
         return database;
     }

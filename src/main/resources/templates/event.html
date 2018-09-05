@@ -1,12 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>New Event</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<h1>Enter A Date Form</h1>
-    <form action="#" th:action="@{/eventAdmin}" th:object="${event}" method="post">
+
+	<h1>Enter A New Date</h1>
+    <h2>Dates You've Entered</h2>
+    <div th:each="eve : ${comingEvents}" th:text="${eve}" />
+
+    <h2>New Date</h2>
+
+    <form action="#" th:action="@{/addEvent}" th:object="${event}" method="post">
+   
     	<p>Event Name: <input type="text" th:field="*{eventName}" /></p>
         <p>Event Date: <input type="date" th:field="*{eventDate}" /></p> 
         <p>Event Comments: <input type="text" th:field="*{eventComments}" /></p>  

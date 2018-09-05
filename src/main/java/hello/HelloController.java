@@ -2,10 +2,14 @@ package hello;
 
 
 import mbi.model.Event;
+import mbi.model.EventWrapper;
+import mbi.model.Player;
 import mbi.session.Session;
-
+import mbi.model.ResponseWrapper;
 
 import java.util.List;
+
+
 import mbi.db.Database;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,16 +25,37 @@ public class HelloController {
 
     private Session session;
     
-    
+    @RequestMapping("/eventList")
+    public String listEvents(Model model){
+        EventWrapper ew = new EventWrapper();
+        String events[] = ew.futureEventsReference();
+        model.addAttribute("events", events);
+        return "eventList";
+    }
 
-    @GetMapping("/eventAdmin")
+    @GetMapping("/addEvent")
     public String eventForm(Model model) {
-        model.addAttribute("event", new Event());
+        Event newEvent = new Event();
+        model.addAttribute("event", newEvent);
+        EventWrapper ew = new EventWrapper();
+        String comingEvents[] = ew.futureEventsReference();
+        model.addAttribute("comingEvents", comingEvents);
         return "event";
     }
 
-    @PostMapping("/eventAdmin")
+@RequestMapping("/getPlayer")
+    public String dummy() {
+       Database db = session.getDatabase();
+       Player p = db.getPlayerByName("Doug");
+       System.out.println(p.getPlayerEmail());
+       return "dummy";
+    }
+
+    @PostMapping("/addEvent")
     public String eventSubmit(@ModelAttribute Event event) {
+        System.out.println("Does event exist?");
+        System.out.println(event.toString());
+        System.out.println(event.getEventId());
         session.getDatabase().upsertEvent(event);
         return "result";
     }
@@ -62,6 +87,8 @@ public class HelloController {
     @RequestMapping("/")
     public String index() {
        session = new Session(true);
+       ResponseWrapper rw = new ResponseWrapper();
+       rw.dummy();
        return "index";
     }
 /*
