@@ -37,6 +37,11 @@ public class HelloController {
         return "rsvp";
     }
 
+    @PostMapping("/myRsvp")
+    public String rsvpSubmit(@ModelAttribute ResponseWrapper rw){
+        return "dummy";
+    }
+
     @RequestMapping("/eventList")
     public String listEvents(Model model){
         EventWrapper ew = new EventWrapper();

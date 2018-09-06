@@ -7,6 +7,15 @@
 <body>
 	<h1>Enter A Date List</h1>
     These are the events:<br/>
-    <div th:each="event : ${events}"> <div th:text="${event}"> Evnt = </div></div>
+    <form action="#" th:action="@{/myRsvp"} th:object="${eventWrap}" method="POST">
+    <div th:each="event : ${events}"> <div th:text="${event}"> <select th:field="*{response}"  >
+        <option value="YES">Yes</option>
+        <option value="NO">No</option>
+        <option value="MAYBE">Maybe</option>
+        <option value="NONE">None</option>
+      </select></div></div>
+</p>
+<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>
